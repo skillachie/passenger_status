@@ -1,6 +1,6 @@
 module PassengerStatus
 	#Passenger Status
-	def self.passgener_stat
+	def self.passenger_stat
 		pass_stat = Hash.new
 		status = `rvmsudo passenger-status`
 		unless $?.success?

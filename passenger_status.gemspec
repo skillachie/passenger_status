@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = PassengerStatus::VERSION
   s.authors     = ["Dwayne Campbell"]
   s.email       = ["dwaynecampbell13@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/skillachie/passenger_status"
   s.summary     = %q{Obtains Phusion Passenger Status}
   s.description = %q{Obtains the current status of Passenger by parsing results from passenger-status & passenger-memory-stats}
 
