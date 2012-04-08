@@ -1,6 +1,6 @@
 module PassengerStatus
 	#Passenger Status
-	def self.passgener_stat
+	def passgener_stat
 		pass_stat = Hash.new
 		status = `rvmsudo passenger-status`
 		unless $?.success?
@@ -33,7 +33,7 @@ module PassengerStatus
 	end
 
 	#Passenger Memory Stats
-	def self.passenger_memory
+	def passenger_memory
 		
 		pass_mem = Hash.new
 		mem_status = `rvmsudo passenger-memory-stats`
