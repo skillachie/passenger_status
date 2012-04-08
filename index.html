@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Passenger Status by skillachie</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Passenger Status</h1>
+        <p>Obtains Running Phusion Passenger Status </p>
+        <p class="view"><a href="https://github.com/skillachie/passenger_status">View the Project on GitHub <small>skillachie/passenger_status</small></a></p>
+        <ul>
+          <li><a href="https://github.com/skillachie/passenger_status/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/skillachie/passenger_status/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/skillachie/passenger_status">Fork On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>Passenger Status.</h3>
+
+<p>Obtains the current status of Passenger by parsing results from passenger-status &amp; passenger-memory-stats. The results are returned in the form of a hash.</p>
+
+<p>This can be useful when load testing an application and you would like to record/log the results in a time series database amongst other uses.</p>
+
+<p>*Only tested on Ubuntu Oneiric(11.10) so far but should work on other distros</p>
+
+<h3>Usage</h3>
+
+<p><code>gem install passenger_status</code></p>
+
+<h3>Example</h3>
+
+<pre><code>require "rubygems"
+require 'passenger_status'
+
+status = PassengerStatus.passgener_stat
+memory_status = PassengerStatus.passenger_memory
+
+puts status.inspect
+puts memory_status.inspect
+
+</code></pre>
+
+<h4>Output Of Results</h4>
+
+<ol>
+<li>Status(status.inspect)</li>
+</ol><pre><code>{:queued=&gt;"0", :sessions=&gt;"0", :count=&gt;"1",
+ :processed=&gt;"42", :active=&gt;"0", :max=&gt;"6", :inactive=&gt;"1"}
+</code></pre>
+
+<ol>
+<li>Memory Status(memory_status.inspect)</li>
+</ol><p>Parent Keys are <strong>PassengerSpawnServer **, **Rack</strong>, <strong>PassengerHelperAgent</strong>, <strong>PassengerWatchdog</strong>. </p>
+
+<p><strong>private</strong> &amp; <strong>vm_size</strong> are used to obtain memory info for there respective parent keys.</p>
+
+<pre><code>{:PassengerSpawnServer=&gt;{:private=&gt;["9.4"], :vm_size=&gt;["37.2"]}, 
+:Rack=&gt;{:private=&gt;["92.7"], :vm_size=&gt;["306.3"]}, 
+:PassengerHelperAgent=&gt;{:private=&gt;["1.0"], :vm_size=&gt;["100.7"]}, 
+:PassengerWatchdog=&gt;{:private=&gt;["0.3"], :vm_size=&gt;["87.2"]}}
+</code></pre>
+
+<h3>Support or Contact</h3>
+
+<p>Please let me know how I can improve this. Just got something together for my use case. <a href="https://github.com/skillachie" class="user-mention">@skillachie</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/skillachie">skillachie</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+  </body>
+</html>
